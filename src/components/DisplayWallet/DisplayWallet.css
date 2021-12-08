@@ -1,6 +1,13 @@
-div .wallet-container{
-    text-align : left;
+div .display-wallet-container{
+    text-align : -webkit-center;
     border-style: solid;
-    padding : 10px;
-    margin : 100px;
+    padding : 30px;
+    margin : 100px 100px auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Times, serif;
+}
+
+div .display-padding {
+    padding-bottom: 50px;
 }

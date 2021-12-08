@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-
+import "./Dashboard.container.css"
 import DropDownSelect from '../../components/Button/DropDownSelect.component';
 import DisplayWallet from '../../components/DisplayWallet/DisplayWallet.component';
 import UserDetail from '../../components/UserDetail/UserDetail.component';
@@ -25,6 +25,7 @@ const Dashboard = () => {
                     "id" : 1,
                     "name" : "tabungan 1",
                     "amount" : 10000
+                    
                 }
             ]
         },
@@ -58,8 +59,8 @@ const Dashboard = () => {
         }
     ]
 
-    return (
-        <div>
+    return(
+        <div className="dashboard">
             <h1>Dashboard</h1>
             <select id="dropdown" value={selects} onChange={onSelected}>
                 <option value="0">user 1</option>
