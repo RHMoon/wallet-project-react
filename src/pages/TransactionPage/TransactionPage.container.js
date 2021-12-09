@@ -1,2 +1,2 @@
-import "./TransactionPage.container.css";
+import "./TransactionPage.css";
 

@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
+// import React, { useCallback, useEffect, useState } from "react";
 
-import "./WalletPage.container.css";
+import "./WalletPage.css";
 import WalletDetail from "../../components/WalletDetail/WalletDetail.component";
 import DisplayTransaction from "../../components/DisplayTransaction/DisplayTransaction.component";
 

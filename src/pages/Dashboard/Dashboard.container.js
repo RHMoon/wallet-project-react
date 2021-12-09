@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
+// import React, { useCallback, useEffect, useState } from 'react';
 
-import "./Dashboard.container.css"
-import DropDownSelect from '../../components/Button/DropDownSelect.component';
+import "./Dashboard.css"
+// import DropDownSelect from '../../components/Button/DropDownSelect.component';
 import DisplayWallet from '../../components/DisplayWallet/DisplayWallet.component';
 import UserDetail from '../../components/UserDetail/UserDetail.component';
 
@@ -25,7 +26,6 @@ const Dashboard = () => {
                     "id" : 1,
                     "name" : "tabungan 1",
                     "amount" : 10000
-                    
                 }
             ]
         },
