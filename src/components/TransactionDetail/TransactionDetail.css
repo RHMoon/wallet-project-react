@@ -1,0 +1,9 @@
+div .transaction-container{
+    text-align : -webkit-center;
+    border-style: solid;
+    padding : 30px;
+    margin : 25px 100px auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Times, serif;
+}
