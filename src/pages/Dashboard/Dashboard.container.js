@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import React, { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
 
 import "./Dashboard.css"
 // import DropDownSelect from '../../components/Button/DropDownSelect.component';
@@ -13,6 +14,13 @@ const Dashboard = () => {
     function onSelected(props) {
         setSelects(props.target.value)
     }
+
+    useEffect(()=>{
+        axios.get('http://localhost:8080/customers')
+        .then((response)=>{
+            console.log(response.data);
+        })
+    })
 
     const customer = [
         {
