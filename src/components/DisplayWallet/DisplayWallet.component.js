@@ -12,12 +12,12 @@ const DisplayWallet = (props) => {
           <tr>
             <td>Wallet Name</td>
             <td>:</td>
-            <td>{data.name}</td>
+            <td>{data.walletName}</td>
           </tr>
           <tr>
             <td>Amount</td>
             <td>:</td>
-            <td>{data.amount}</td>
+            <td>{data.ballance}</td>
           </tr>
         </table>
       </div>

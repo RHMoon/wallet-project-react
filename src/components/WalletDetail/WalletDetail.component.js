@@ -9,17 +9,17 @@ const WalletDetail = (props) => {
             <tr>
               <td>Wallet Name</td>
               <td>:</td>
-              <td>{data.name}</td>
+              <td>{data.walletName}</td>
             </tr>
             <tr>
               <td>Amount</td>
               <td>:</td>
-              <td>{data.amount}</td>
+              <td>{data.ballance}</td>
             </tr>
             <tr>
               <td>Create At</td>
               <td>:</td>
-              <td>{data.joinAt}</td>
+              <td>{data.createdAt}</td>
             </tr>
           </table>
         </div>

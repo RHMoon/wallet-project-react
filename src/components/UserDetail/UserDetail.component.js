@@ -21,12 +21,12 @@ const UserDetail = (props) => {
           <tr>
             <td>Birthday</td>
             <td>:</td>
-            <td>{data.birthday}</td>
+            <td>{data.dateOfBirth}</td>
           </tr>
           <tr>
             <td>Join at</td>
             <td>:</td>
-            <td>{data.joinAt}</td>
+            <td>{data.registerAt}</td>
           </tr>
         </table>
       </div>
