@@ -9,23 +9,27 @@ import UserDetail from '../../components/UserDetail/UserDetail.component';
 
 const Dashboard = () => {
     const [selects, setSelects] = useState(0);
+    const [customer, setCustomer] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     function onSelected(props) {
         setSelects(props.target.value)
     }
 
     const fetchData = async () => {
-        const { customer } = await axios.get('http://localhost:8080/customers')
-        .then((response)=>{
-            console.log(response.data);
-        })
-        .catch((error)=>{
-            console.log(error);
-        }) 
+        const { data } = await axios.get('http://localhost:8080/customers')
+        
+        // .catch((error)=>{
+        //     console.log(error);
+        // })
+        setCustomer(data);
+        setIsLoading(false);
+        console.log(data);
     }
     useEffect(()=>{
         fetchData();
-    })
+
+    }, [])
 
     return (
         <div className="dashboard">
@@ -37,8 +41,9 @@ const Dashboard = () => {
             </select>
             {/* <UserDetail data={customer[parseInt(selects)]} />
             <DisplayWallet data={customer[parseInt(selects)].walletList[0]} /> */}
-            <UserDetail data={customer.customerId(selects)} />
-            {/* <DisplayWallet data={customer[parseInt(selects)].walletList[0]} /> */}
+            <UserDetail data = { customer[parseInt(selects)] } isLoading = {isLoading}/>
+            {/* { console.log(customer[parseInt(selects)])} */}
+            {/* <DisplayWallet data = {customer[parseInt(selects)].walletList[0]} isLoading = {isLoading} /> */}
         </div>
     )
 }
