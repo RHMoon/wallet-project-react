@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+// import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import "./Dashboard.container.css"
-import DropDownSelect from '../../components/Button/DropDownSelect.component';
-import DisplayWallet from '../../components/DisplayWallet/DisplayWallet.component';
+// import DropDownSelect from '../../components/Button/DropDownSelect.component';
+// import DisplayWallet from '../../components/DisplayWallet/DisplayWallet.component';
 import UserDetail from '../../components/UserDetail/UserDetail.component';
 
 
@@ -39,11 +40,7 @@ const Dashboard = () => {
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
             </select>
-            {/* <UserDetail data={customer[parseInt(selects)]} />
-            <DisplayWallet data={customer[parseInt(selects)].walletList[0]} /> */}
             <UserDetail data = { customer[parseInt(selects)] } isLoading = {isLoading}/>
-            {/* { console.log(customer[parseInt(selects)])} */}
-            {/* <DisplayWallet data = {customer[parseInt(selects)].walletList[0]} isLoading = {isLoading} /> */}
         </div>
     )
 }

@@ -5,38 +5,46 @@ import "./WalletDetail.css";
 
 const WalletDetail = (props) => {
   const { data = {}, isLoading } = props;
+
+  // const [customer, setCustomer] = useState([]);
+
+
+
+  // const loadCustomerWallet = () =>{
+  //   return let customerWallet = data.walletList[0]}
+  // }
   
   return (
     <>
       {
         isLoading ? (<p>Loading</p>) : (
           <>
-            {/* {let customerWallet = data.walletList[0]} */}
+            
             <div className="wallet-container">
               <h1>Wallet Detail</h1>
               <table>
                 <tr>
                   <td>Wallet Name</td>
                   <td>:</td>
-                  <td>{customerWallet.walletName}</td>
+                  <td>{data.walletList[0].walletName}</td>
                 </tr>
                 <tr>
                   <td>Amount</td>
                   <td>:</td>
-                  <td>{customerWallet.ballance}</td>
+                  <td>{data.walletList[0].ballance}</td>
                 </tr>
                 <tr>
                   <td>Create At</td>
                   <td>:</td>
-                  <td>{customerWallet.createdAt}</td>
+                  <td>{data.walletList[0].createdAt}</td>
                 </tr>
               </table>
             </div>
 
             {
-                Object.keys(customerWallet.transactionHistory).length === 0
+                Object.keys(data.walletList[0].transactionHistory).length === 0
                     ? <p className="no-trans">NO TRANSACTION HISTORY</p>
-                    : <DisplayTransaction data ={customerWallet.transactionHistory} />
+                    : <DisplayTransaction data ={data.walletList[0].transactionHistory} />
             }
 
           </>

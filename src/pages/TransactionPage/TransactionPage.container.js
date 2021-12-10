@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import TransactionDetail from '../../components/TransactionDetail/TransactionDetail.component';
+import TransactionForm from '../../components/TransactionForm/TransactionForm.component';
 import "./TransactionPage.container.css";
 
 const TransactionPage = () => {
@@ -101,7 +101,7 @@ const TransactionPage = () => {
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
             </select>
-            <TransactionDetail />
+            <TransactionForm />
         </div>
     )
 }

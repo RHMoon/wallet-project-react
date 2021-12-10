@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./WalletPage.container.css";
 import WalletDetail from "../../components/WalletDetail/WalletDetail.component";
-import DisplayTransaction from "../../components/DisplayTransaction/DisplayTransaction.component";
+// import DisplayTransaction from "../../components/DisplayTransaction/DisplayTransaction.component";
 
 const WalletPage = () => {
     const [selects, setSelects] = useState(0);

@@ -1,6 +1,7 @@
-import "./TransactionDetail.css";
+import "./TransactionForm.css";
 
-const TransactionDetail = () => {
+const TransactionForm = (props) => {
+    const { handleOnSubmit, dummy } = props;
 
     return (
         <div className="transaction-container">
@@ -39,9 +40,10 @@ const TransactionDetail = () => {
                         </td>
                     </tr>
                 </table>
+                <button onClick={()=>handleOnSubmit(dummy)}>Next</button>
             </div>
         </div>
     )
 }
 
-export default TransactionDetail;
+export default TransactionForm;
