@@ -44,4 +44,4 @@ const TransactionDetail = () => {
     )
 }
 
-            export default TransactionDetail;
+export default TransactionDetail;
