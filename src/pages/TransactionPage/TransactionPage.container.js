@@ -1,97 +1,71 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
+
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component';
+
 import "./TransactionPage.container.css";
 
 const TransactionPage = () => {
     const [selects, setSelects] = useState(0);
+    const [customer, setCustomer] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     function onSelected(props) {
         setSelects(props.target.value)
     }
 
-    const customer = [
-        {
-            "id": 1,
-            "name": "Hary Pottah",
-            "nik": 123456,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 1,
-                    "name": "tabungan 1",
-                    "amount": 10000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
-                        {
-                            "transactionId": 1,
-                            "type": "Top Up",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12"
-                        },
-                        {
-                            "transactionId": 2,
-                            "type": "Top UUUp",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12",
+    const fetchData = async () => {
+        const { data } = await axios.get('http://localhost:8080/customers')
 
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Harry Minggu",
-            "nik": 123426,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 2,
-                    "name": "tabungan 2",
-                    "amount": 20000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
-                        {
-                            "transactionId": 1,
-                            "type": "Top Up",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "name": "Harry Potter vol 3",
-            "nik": 123426,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 3,
-                    "name": "tabungan 3",
-                    "amount": 30000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
+        // .catch((error)=>{
+        //     console.log(error);
+        // })
+        setCustomer(data);
+        setIsLoading(false);
+        console.log(data);
+    }
 
-                    ]
-                }
-            ]
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const transaction = [
+        {
+            "customerId": 1,
+            "transactionType": "transfer",
+            "fromWalletId": 1,
+            "toWalletId": 2,
+            "amount": 30000,
+            "note": "Utang Brok"
         }
     ]
 
+    const onSubmit = async (transaction) => {
+        // const post = await axios.post(`http://localhost:8080/customers/1/top-up/`,transaction)
+        const json = JSON.stringify({
+            "toWalletId": transaction.toWalletId,
+            "amount": transaction.amount,
+            "note": transaction.note
+        });
+        try {
+            const res = await axios.post(
+                `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`, json, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+                },
+                statusText: 'OK',
+                status: 200,
+            }
+        );
+            fetchData()
+            console.log(res);
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <div className="wallet">
@@ -101,7 +75,7 @@ const TransactionPage = () => {
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
             </select>
-            <TransactionForm />
+            <TransactionForm handleOnSubmit={onSubmit} dummy={transaction} isLoading={isLoading} />
         </div>
     )
 }
