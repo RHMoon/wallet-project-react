@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+// import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component';
@@ -14,19 +15,16 @@ const TransactionPage = () => {
         setSelects(props.target.value)
     }
 
-    const fetchData = async () => {
+    const fetchCustomer = async () => {
         const { data } = await axios.get('http://localhost:8080/customers')
 
-        // .catch((error)=>{
-        //     console.log(error);
-        // })
         setCustomer(data);
         setIsLoading(false);
-        console.log(data);
+        console.log(customer);
     }
 
     useEffect(() => {
-        fetchData();
+        fetchCustomer()
     }, [])
 
     const transaction = [
@@ -40,27 +38,28 @@ const TransactionPage = () => {
         }
     ]
 
-    const onSubmit = async (transaction) => {
+    const onSubmit = async () => {
         // const post = await axios.post(`http://localhost:8080/customers/1/top-up/`,transaction)
+        // const { transaction } = props
+        // console.log(transaction)
         const json = JSON.stringify({
-            "toWalletId": transaction.toWalletId,
-            "amount": transaction.amount,
-            "note": transaction.note
+            "toWalletId": 3,
+            "amount": 30000,
+            "note": "Mcd bro",
         });
+        console.log(json, 'ini')
         try {
             const res = await axios.post(
-                `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`, json, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
-                },
-                statusText: 'OK',
-                status: 200,
-            }
-        );
-            fetchData()
+                // `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`,
+                'http://localhost:8080/customers/1/transfer/1',
+                json
+                , {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            );
+            fetchCustomer()
             console.log(res);
         } catch (error) {
             alert(error.message)
