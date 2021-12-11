@@ -19,10 +19,7 @@ const Dashboard = () => {
 
     const fetchData = async () => {
         const { data } = await axios.get('http://localhost:8080/customers')
-        
-        // .catch((error)=>{
-        //     console.log(error);
-        // })
+
         setCustomer(data);
         setIsLoading(false);
         console.log(data);

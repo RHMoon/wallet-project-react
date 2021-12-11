@@ -27,31 +27,29 @@ const TransactionPage = () => {
         fetchCustomer()
     }, [])
 
-    const transaction = [
+    const transaction = (
         {
             "customerId": 1,
             "transactionType": "transfer",
             "fromWalletId": 1,
-            "toWalletId": 2,
-            "amount": 30000,
+            "toWalletId": 20,
+            "amount": 1000,
             "note": "Utang Brok"
         }
-    ]
+    )
 
-    const onSubmit = async () => {
-        // const post = await axios.post(`http://localhost:8080/customers/1/top-up/`,transaction)
-        // const { transaction } = props
-        // console.log(transaction)
+    const onSubmit = async (transaction) => {
+
         const json = JSON.stringify({
-            "toWalletId": 3,
-            "amount": 30000,
-            "note": "Mcd bro",
+            "toWalletId": transaction.toWalletId,
+            "amount": transaction.amount,
+            "note": transaction.note,
         });
-        console.log(json, 'ini')
+        // console.log(json)
+
         try {
             const res = await axios.post(
-                // `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`,
-                'http://localhost:8080/customers/1/transfer/1',
+                `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`,
                 json
                 , {
                     headers: {
@@ -63,6 +61,7 @@ const TransactionPage = () => {
             console.log(res);
         } catch (error) {
             alert(error.message)
+            console.log(error);
         }
     }
 

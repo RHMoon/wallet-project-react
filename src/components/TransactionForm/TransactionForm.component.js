@@ -44,7 +44,7 @@ const TransactionForm = (props) => {
                                     </td>
                                 </tr>
                             </table>
-                            <button onClick={() => handleOnSubmit({dummy})}>Next</button>
+                            <button onClick={() => handleOnSubmit(dummy)}>Next</button>
                         </div>
                     </div>
                 </>
