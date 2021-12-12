@@ -9,6 +9,7 @@ import "./TransactionPage.container.css";
 const TransactionPage = () => {
     const [selects, setSelects] = useState(0);
     const [customer, setCustomer] = useState([]);
+    // const [customerWallets, setCustomerWallets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     function onSelected(props) {
@@ -20,24 +21,33 @@ const TransactionPage = () => {
 
         setCustomer(data);
         setIsLoading(false);
-        console.log(customer);
+        // setCustomerWallets(getWalletList(1))
     }
 
     useEffect(() => {
         fetchCustomer()
     }, [])
 
-    const transaction = (
-        {
-            "customerId": 1,
-            "transactionType": "transfer",
-            "fromWalletId": 1,
-            "toWalletId": 20,
-            "amount": 1000,
-            "note": "Utang Brok"
-        }
-    )
+    // const transaction = (
+    //     {
+    //         "customerId": 1,
+    //         "transactionType": "transfer",
+    //         "fromWalletId": 1,
+    //         "toWalletId": 20,
+    //         "amount": 1000,
+    //         "note": "Utang Brok"
+    //     }
+    // )
+    // const getWalletList = (id) => {
+    //     const filteredCustomer = customer.filter((item) => {
+    //         return item.customerId === id;
+    //     })
+    //     return filteredCustomer[0].walletList
+    // }
 
+    // const onSubmit = (transaction) => {
+    //     console.log(transaction)
+    // }
     const onSubmit = async (transaction) => {
 
         const json = JSON.stringify({
@@ -49,7 +59,8 @@ const TransactionPage = () => {
 
         try {
             const res = await axios.post(
-                `http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId}`,
+                ` http://localhost:8080/customers/1/transfer/${transaction.fromWalletId} `,
+                // ` http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId} `,
                 json
                 , {
                     headers: {
@@ -59,6 +70,7 @@ const TransactionPage = () => {
             );
             fetchCustomer()
             console.log(res);
+            alert('success')
         } catch (error) {
             alert(error.message)
             console.log(error);
@@ -73,7 +85,12 @@ const TransactionPage = () => {
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
             </select>
-            <TransactionForm handleOnSubmit={onSubmit} dummy={transaction} isLoading={isLoading} />
+            <TransactionForm
+                handleOnSubmit={onSubmit}
+                customers={customer}
+                // customerWallets = {customerWallets}
+                isLoading={isLoading}
+            />
         </div>
     )
 }

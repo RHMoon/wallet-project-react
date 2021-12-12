@@ -7,3 +7,15 @@ div .transaction-container{
     font-weight: bold;
     font-family: Times, serif;
 }
+
+.form {
+    max-width: 60%;
+    margin: 50px auto;
+}
+
+.form-row {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
