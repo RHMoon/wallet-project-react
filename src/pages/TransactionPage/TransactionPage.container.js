@@ -38,17 +38,35 @@ const TransactionPage = () => {
         // console.log(json)
 
         try {
-            const res = await axios.post(
-                ` http://localhost:8080/customers/1/transfer/${transaction.fromWalletId} `,
-                json
-                , {
-                    headers: {
-                        'Content-Type': 'application/json',
+            console.log(transaction.transactionType)
+            if (transaction.transactionType === "Transfer") {
+                const res = await axios.post(
+                    ` http://localhost:8080/customers/1/transfer/${transaction.fromWalletId} `,
+                    json
+                    , {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
                     }
-                }
-            );
+                );
+                console.log(res);
+            }
+
+            if (transaction.transactionType === "Top Up") {
+                const res = await axios.post(
+                    ` http://localhost:8080/customers/1/top-up/ `,
+                    json
+                    , {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }
+                );
+                // console.log('Top-Up');
+                console.log(res);
+            }
+
             fetchCustomer()
-            console.log(res);
             alert('success')
         } catch (error) {
             alert(error.message)

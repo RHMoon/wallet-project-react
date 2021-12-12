@@ -102,7 +102,7 @@ const TransactionForm = (props) => {
                                     <label>Transaction Type</label>
                                     <select {...register("transactionType", { required: true })}>
                                         <option value="Transfer">Transfer</option>
-                                        <option value="Top up">Top up</option>
+                                        <option value="Top Up">Top up</option>
                                     </select>
                                 </div>
 
