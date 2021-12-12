@@ -28,26 +28,6 @@ const TransactionPage = () => {
         fetchCustomer()
     }, [])
 
-    // const transaction = (
-    //     {
-    //         "customerId": 1,
-    //         "transactionType": "transfer",
-    //         "fromWalletId": 1,
-    //         "toWalletId": 20,
-    //         "amount": 1000,
-    //         "note": "Utang Brok"
-    //     }
-    // )
-    // const getWalletList = (id) => {
-    //     const filteredCustomer = customer.filter((item) => {
-    //         return item.customerId === id;
-    //     })
-    //     return filteredCustomer[0].walletList
-    // }
-
-    // const onSubmit = (transaction) => {
-    //     console.log(transaction)
-    // }
     const onSubmit = async (transaction) => {
 
         const json = JSON.stringify({
@@ -60,7 +40,6 @@ const TransactionPage = () => {
         try {
             const res = await axios.post(
                 ` http://localhost:8080/customers/1/transfer/${transaction.fromWalletId} `,
-                // ` http://localhost:8080/customers/${transaction.customerId}/transfer/${transaction.fromWalletId} `,
                 json
                 , {
                     headers: {
