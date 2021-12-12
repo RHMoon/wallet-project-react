@@ -11,6 +11,7 @@ const TransactionForm = (props) => {
     const [customerWallets, setCustomerWallets] = useState([]);
     const [selectWallets, setSelectWallets] = useState(0);
     const [maxBallance, setMaxBallance] = useState(1000);
+    // const [walletAvailability, setwalletAvailability] = useState(true);
     // const [customer, setCustomer] = useState([]);
 
     const getWalletList = (id) => {
@@ -50,6 +51,7 @@ const TransactionForm = (props) => {
 
     const checkWalletByID = (id) => {
         const filteredWallet = allCustomerWallets.filter((item) => {
+            console.log(item);
             return item.walletId === id;
         })
         if (filteredWallet.length === 0) {
@@ -67,6 +69,10 @@ const TransactionForm = (props) => {
     useEffect(() => {
         setMaxBallance(checkAmount(selectWallets))
     }, [selectWallets])
+
+    // useEffect(() => {
+    //     setMaxBallance(checkAmount(selectWallets))
+    // }, [handleOnSubmit])
 
 
     // const onSubmit = data => console.log(data);
@@ -105,7 +111,7 @@ const TransactionForm = (props) => {
                                     <input type="number" placeholder="Wallet ID" {...register("toWalletId", {
                                         required: true, min: 1,
                                         validate: {
-                                            checkWallet: v => checkWalletByID(v)
+                                            checkWallet: v => checkWalletByID(parseInt(v))
                                         }
                                     })}></input>
                                 </div>
