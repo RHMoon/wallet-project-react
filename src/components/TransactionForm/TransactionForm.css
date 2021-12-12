@@ -19,3 +19,10 @@ div .transaction-container{
     justify-content: space-between;
     flex-direction: row;
 }
+
+.error {
+    color: red;
+    font-size: small;
+    text-align: right;
+    margin-bottom: 10px;
+}

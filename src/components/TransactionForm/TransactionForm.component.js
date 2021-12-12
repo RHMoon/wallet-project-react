@@ -29,12 +29,12 @@ const TransactionForm = (props) => {
         console.log(props.target.value)
     }
 
-    const checkAmount = (id) =>{
+    const checkAmount = (id) => {
         const filteredWallet = customerWallets.filter((item) => {
             return item.walletId === id;
         })
         if (filteredWallet.length === 0) {
-            
+
         } else {
             console.log(filteredWallet)
             return filteredWallet[0].ballance
@@ -63,7 +63,7 @@ const TransactionForm = (props) => {
                             <form className="form" onSubmit={handleSubmit(handleOnSubmit)}>
                                 <div className="form-row">
                                     <label>Wallet</label>
-                                    <select {...register("fromWalletId",{required: true})} value={selectWallets} onChange={onSelectedWallet}>
+                                    <select {...register("fromWalletId", { required: true })} value={selectWallets} onChange={onSelectedWallet}>
                                         <option value="" disabled>Select wallet</option>
                                         {
                                             customerWallets.map((item) => (
@@ -72,17 +72,28 @@ const TransactionForm = (props) => {
                                         }
                                     </select>
                                 </div>
+                                
                                 <div className="form-row">
                                     <label>Transaction Type</label>
-                                    <select {...register("transactionType",{required: true})}>
+                                    <select {...register("transactionType", { required: true })}>
                                         <option value="Transfer">Transfer</option>
                                         <option value="Top up">Top up</option>
                                     </select>
                                 </div>
+
                                 <div className="form-row">
                                     <label>To Wallet</label>
-                                    <input type="number" placeholder="Wallet ID" {...register("toWalletId",{required: true})}></input>
+                                    <input type="number" placeholder="Wallet ID" {...register("toWalletId", { required: true, min: 1 })}></input>
                                 </div>
+
+                                <div className="error">
+                                    {errors.toWalletId && errors.toWalletId.type === "required" && "Wallet ID is required"}
+
+                                    {errors.toWalletId && errors.toWalletId.type === "min" && (
+                                        <span>invalid input</span>
+                                    )}
+                                </ div>
+
                                 <div className="form-row">
                                     <label>Amount</label>
                                     <input type="number" placeholder="Amount"
@@ -92,15 +103,17 @@ const TransactionForm = (props) => {
                                     />
                                 </div>
 
-                                {errors.amount && errors.amount.type === "required" && "amount is required"}
+                                <div className="error">
+                                    {errors.amount && errors.amount.type === "required" && "amount is required"}
 
-                                {errors.amount && errors.amount.type === "max" && (
+                                    {errors.amount && errors.amount.type === "max" && (
                                         <span>balance insufficient</span>
-                                )}
+                                    )}
 
-                                {errors.amount && errors.amount.type === "min" && (
+                                    {errors.amount && errors.amount.type === "min" && (
                                         <span>invalid input</span>
-                                )}
+                                    )}
+                                </ div>
 
                                 {/* <p>{maxBallance}</p> */}
 
