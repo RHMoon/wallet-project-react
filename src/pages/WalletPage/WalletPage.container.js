@@ -1,99 +1,33 @@
-import React, { useState } from "react";
-// import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 
 import "./WalletPage.css";
 import WalletDetail from "../../components/WalletDetail/WalletDetail.component";
-import DisplayTransaction from "../../components/DisplayTransaction/DisplayTransaction.component";
+// import DisplayTransaction from "../../components/DisplayTransaction/DisplayTransaction.component";
 
 const WalletPage = () => {
     const [selects, setSelects] = useState(0);
+    const [customer, setCustomer] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     function onSelected(props) {
         setSelects(props.target.value)
     }
 
-    const customer = [
-        {
-            "id": 1,
-            "name": "Hary Pottah",
-            "nik": 123456,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 1,
-                    "name": "tabungan 1",
-                    "amount": 10000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
-                        {
-                            "transactionId": 1,
-                            "type": "Top Up",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12"
-                        },
-                        {
-                            "transactionId": 2,
-                            "type": "Top UUUp",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12",
+    const fetchData = async () => {
+        const { data } = await axios.get('http://localhost:8080/customers')
 
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Harry Minggu",
-            "nik": 123426,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 2,
-                    "name": "tabungan 2",
-                    "amount": 20000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
-                        {
-                            "transactionId": 1,
-                            "type": "Top Up",
-                            "note": "Wallet Opening",
-                            "walletFromId": "-",
-                            "walletToId": 1,
-                            "amount": 50000,
-                            "createdAt": "12-12-12"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "name": "Harry Potter vol 3",
-            "nik": 123426,
-            "birthday": "12-2-12",
-            "joinAt": "12-12-12",
-            "walletList": [
-                {
-                    "id": 3,
-                    "name": "tabungan 3",
-                    "amount": 30000,
-                    "joinAt": "12-12-12",
-                    "transactionHistory": [
+        // .catch((error)=>{
+        //     console.log(error);
+        // })
+        setCustomer(data);
+        setIsLoading(false);
+        console.log(data);
+    }
+    useEffect(() => {
+        fetchData();
 
-                    ]
-                }
-            ]
-        }
-    ]
+    }, [])
 
 
     return (
@@ -105,12 +39,14 @@ const WalletPage = () => {
                 <option value="2">user 3</option>
             </select>
 
-            <WalletDetail data={customer[parseInt(selects)].walletList[0]} />
-            {
+            {/* <WalletDetail data={customer[parseInt(selects)].walletList[0]} isLoading = {isLoading} /> */}
+            {/* {
                 Object.keys(customer[parseInt(selects)].walletList[0].transactionHistory).length === 0
                     ? <p className="no-trans">NO TRANSACTION HISTORY</p>
                     : <DisplayTransaction data={customer[parseInt(selects)].walletList[0].transactionHistory} />
-            }
+            } */}
+            <WalletDetail data={customer[parseInt(selects)]} isLoading = {isLoading} />
+            {/* <WalletDetail data={customer[parseInt(selects)].walletList[parseInt(0)]} isLoading = {isLoading} /> */}
         </div>
     )
 }
