@@ -7,26 +7,33 @@ const TransactionForm = (props) => {
     const { handleOnSubmit, customers = {}, isLoading } = props;
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const [allCustomerWallets, setAllCustomerWallets] = useState([]);
     const [customerWallets, setCustomerWallets] = useState([]);
     const [selectWallets, setSelectWallets] = useState(0);
     const [maxBallance, setMaxBallance] = useState(1000);
     // const [customer, setCustomer] = useState([]);
 
     const getWalletList = (id) => {
+        let allWalletList = [];
         const filteredCustomer = customers.filter((item) => {
+            let customerWalletList = item.walletList
+            allWalletList = [...allWalletList, ...customerWalletList]
             return item.customerId === id;
         })
         if (filteredCustomer.length === 0) {
 
         } else {
+            setAllCustomerWallets(allWalletList)
+            console.log(allWalletList);
             return filteredCustomer[0].walletList
         }
     }
 
     const onSelectedWallet = (props) => {
         setSelectWallets(parseInt(props.target.value))
+
         setMaxBallance(checkAmount(selectWallets))
-        console.log(props.target.value)
+        // console.log(props.target.value)
     }
 
     const checkAmount = (id) => {
@@ -36,8 +43,20 @@ const TransactionForm = (props) => {
         if (filteredWallet.length === 0) {
 
         } else {
-            console.log(filteredWallet)
+            // console.log(filteredWallet)
             return filteredWallet[0].ballance
+        }
+    }
+
+    const checkWalletByID = (id) => {
+        const filteredWallet = allCustomerWallets.filter((item) => {
+            return item.walletId === id;
+        })
+        if (filteredWallet.length === 0) {
+            return false
+        } else {
+            // console.log(filteredWallet)
+            return true
         }
     }
 
@@ -72,7 +91,7 @@ const TransactionForm = (props) => {
                                         }
                                     </select>
                                 </div>
-                                
+
                                 <div className="form-row">
                                     <label>Transaction Type</label>
                                     <select {...register("transactionType", { required: true })}>
@@ -83,7 +102,12 @@ const TransactionForm = (props) => {
 
                                 <div className="form-row">
                                     <label>To Wallet</label>
-                                    <input type="number" placeholder="Wallet ID" {...register("toWalletId", { required: true, min: 1 })}></input>
+                                    <input type="number" placeholder="Wallet ID" {...register("toWalletId", {
+                                        required: true, min: 1,
+                                        validate: {
+                                            checkWallet: v => checkWalletByID(v)
+                                        }
+                                    })}></input>
                                 </div>
 
                                 <div className="error">
@@ -91,6 +115,10 @@ const TransactionForm = (props) => {
 
                                     {errors.toWalletId && errors.toWalletId.type === "min" && (
                                         <span>invalid input</span>
+                                    )}
+
+                                    {errors.toWalletId && errors.toWalletId.type === "checkWallet" && (
+                                        <span>wallet doesn't exist</span>
                                     )}
                                 </ div>
 
