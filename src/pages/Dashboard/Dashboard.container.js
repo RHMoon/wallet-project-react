@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
-import "./Dashboard.container.css"
+import "./Dashboard.css"
 // import DropDownSelect from '../../components/Button/DropDownSelect.component';
 // import DisplayWallet from '../../components/DisplayWallet/DisplayWallet.component';
 import UserDetail from '../../components/UserDetail/UserDetail.component';

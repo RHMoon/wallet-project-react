@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import TransactionForm from '../../components/TransactionForm/TransactionForm.component';
 
-import "./TransactionPage.container.css";
+import "./TransactionPage.css";
 
 const TransactionPage = () => {
     const [selects, setSelects] = useState(0);
