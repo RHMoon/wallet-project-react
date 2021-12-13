@@ -2,13 +2,20 @@ import "./UserDetail.css";
 import DisplayWallet from "../DisplayWallet/DisplayWallet.component";
 
 const UserDetail = (props) => {
-  const { data = {}, isLoading } = props;
-  console.log(props);
+  const { data = {}, isLoading, selects, onSelected } = props;
+  // console.log(props);
   return (
     <>
       {
         isLoading ? (<p>Loading</p>) : (
           <>
+            <select id="dropdown" value={selects} onChange={onSelected}>
+              {
+                data.map((item) => (
+                  <option value={`${item.customerId-1}`}>customer {item.customerId}</option>
+                ))
+              }
+            </select>
             <div className="user-container wallet-container w3-container w3-white w3-round-xlarge">
               <h1>User Detail</h1>
               <div className="table-user">
@@ -16,28 +23,28 @@ const UserDetail = (props) => {
                   <tr>
                     <td>Name</td>
                     <td>:</td>
-                    <td>{data.name}</td>
+                    <td>{data[parseInt(selects)].name}</td>
                   </tr>
                   <tr>
                     <td>Nik</td>
                     <td>:</td>
-                    <td>{data.nik}</td>
+                    <td>{data[parseInt(selects)].nik}</td>
                   </tr>
                   <tr>
                     <td>Birthday</td>
                     <td>:</td>
-                    <td>{data.dateOfBirth}</td>
+                    <td>{data[parseInt(selects)].dateOfBirth}</td>
                   </tr>
                   <tr>
                     <td>Join at</td>
                     <td>:</td>
-                    <td>{data.registerAt}</td>
+                    <td>{data[parseInt(selects)].registerAt}</td>
                   </tr>
                 </table>
-              </div>  
+              </div>
             </div>
 
-            <DisplayWallet data={data.walletList[0]} isLoading={isLoading} />
+            <DisplayWallet data={data[parseInt(selects)].walletList} isLoading={isLoading} />
           </>
         )
       }

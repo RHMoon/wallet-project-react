@@ -15,6 +15,7 @@ const Dashboard = () => {
 
     function onSelected(props) {
         setSelects(props.target.value)
+        // console.log(props.target.value)
     }
 
     const fetchData = async () => {
@@ -24,7 +25,7 @@ const Dashboard = () => {
         setIsLoading(false);
         console.log(data);
     }
-    useEffect(()=>{
+    useEffect(() => {
         fetchData();
 
     }, [])
@@ -32,12 +33,18 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
             <h1>Dashboard</h1>
-            <select id="dropdown" value={selects} onChange={onSelected}>
+            {/* <select id="dropdown" value={selects} onChange={onSelected}>
                 <option value="0">user 1</option>
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
-            </select>
-            <UserDetail data = { customer[parseInt(selects)] } isLoading = {isLoading}/>
+            </select> */}
+            {/* <UserDetail data = { customer[parseInt(selects)] } isLoading = {isLoading}/> */}
+            <UserDetail
+                data={customer}
+                isLoading={isLoading}
+                selects={selects}
+                onSelected={onSelected}
+            />
         </div>
     )
 }
