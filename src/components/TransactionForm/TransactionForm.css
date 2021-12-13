@@ -15,9 +15,12 @@ div .transaction-container{
 
 .form-row {
     margin-bottom: 10px;
-    display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    display: block;
+    text-align : left;
+    margin-bottom: 10px;
+    /* display: flex;
+    flex-direction: row; */
 }
 
 .error {

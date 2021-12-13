@@ -88,7 +88,7 @@ const TransactionForm = (props) => {
                             <form className="form" onSubmit={handleSubmit(handleOnSubmit)}>
                                 <div className="form-row">
                                     <label>Wallet</label>
-                                    <select {...register("fromWalletId", { required: true })} value={selectWallets} onChange={onSelectedWallet}>
+                                    <select className="w3-input w3-border" {...register("fromWalletId", { required: true })} value={selectWallets} onChange={onSelectedWallet}>
                                         <option value="" disabled>Select wallet</option>
                                         {
                                             customerWallets.map((item) => (
@@ -100,7 +100,7 @@ const TransactionForm = (props) => {
 
                                 <div className="form-row">
                                     <label>Transaction Type</label>
-                                    <select {...register("transactionType", { required: true })}>
+                                    <select className="w3-input w3-border" {...register("transactionType", { required: true })}>
                                         <option value="Transfer">Transfer</option>
                                         <option value="Top Up">Top up</option>
                                     </select>
@@ -108,7 +108,7 @@ const TransactionForm = (props) => {
 
                                 <div className="form-row">
                                     <label>To Wallet</label>
-                                    <input type="number" placeholder="Wallet ID" {...register("toWalletId", {
+                                    <input className="w3-input w3-border" type="number" placeholder="Wallet ID" {...register("toWalletId", {
                                         required: true, min: 1,
                                         validate: {
                                             checkWallet: v => checkWalletByID(parseInt(v))
@@ -130,7 +130,7 @@ const TransactionForm = (props) => {
 
                                 <div className="form-row">
                                     <label>Amount</label>
-                                    <input type="number" placeholder="Amount"
+                                    <input className="w3-input w3-border" type="number" placeholder="Amount"
                                         {...register("amount", {
                                             required: true, max: maxBallance, min: 0
                                         })}
@@ -153,7 +153,7 @@ const TransactionForm = (props) => {
 
                                 <div className="form-row">
                                     <label>Description</label>
-                                    <input type="text" placeholder="Note" {...register("note")}></input>
+                                    <input className="w3-input w3-border" type="text" placeholder="Note" {...register("note")}></input>
                                 </div>
                                 <div className="form-row">
                                     <button type="submit">Submit</button>
