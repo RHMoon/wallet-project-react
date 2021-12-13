@@ -18,9 +18,9 @@ const WalletDetail = (props) => {
     <>
       {
         isLoading ? (<p>Loading</p>) : (
-          <>
+          <div className="display-padding">
             
-            <div className="wallet-container">
+            <div className="wallet-container w3-container w3-white w3-round-xlarge">
               <h1>Wallet Detail</h1>
               <table>
                 <tr>
@@ -47,7 +47,7 @@ const WalletDetail = (props) => {
                     : <DisplayTransaction data ={data.walletList[0].transactionHistory} />
             }
 
-          </>
+          </div>
         )
       }
     </>

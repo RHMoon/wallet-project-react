@@ -3,7 +3,7 @@ import "./DisplayTransaction.css";
 const DisplayTransaction = (props) => {
   const { data } = props;
   return (
-    <div className="display-padding">
+    <div className="wallet-container w3-white w3-round-xlarge">
       <div className="transaction-container">
         <h1>Detail Transaction</h1>
         <table className="table-transaction">

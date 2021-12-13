@@ -83,8 +83,8 @@ const TransactionForm = (props) => {
             isLoading ? (<p>Loading</p>) : (
                 <>
                     <div className="transaction-container">
-                        <h1>Transaction</h1>
-                        <div className="table-user">
+                        {/* <h1>Transaction</h1> */}
+                        <div className="table-user w3-container w3-white w3-round-xlarge">
                             <form className="form" onSubmit={handleSubmit(handleOnSubmit)}>
                                 <div className="form-row">
                                     <label>Wallet</label>

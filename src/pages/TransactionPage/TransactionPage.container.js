@@ -76,7 +76,7 @@ const TransactionPage = () => {
 
     return (
         <div className="wallet">
-            <h1>TransactionPage</h1>
+            <h1>Transaction</h1>
             <select id="dropdown" value={selects} onChange={onSelected}>
                 <option value="0">user 1</option>
                 <option value="1">user 2</option>

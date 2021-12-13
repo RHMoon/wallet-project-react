@@ -1,4 +1,4 @@
-div .transaction-container{
+/* div .transaction-container{
     text-align : -webkit-center;
     border-style: solid;
     padding : 30px;
@@ -6,7 +6,7 @@ div .transaction-container{
     font-size: 30px;
     font-weight: bold;
     font-family: Times, serif;
-}
+} */
 
 .table-transaction {
     margin-left: auto;
@@ -19,4 +19,8 @@ div .transaction-container{
 .table-style {
     border: 2px solid black;
     border-collapse: collapse;
+}
+
+div .display-padding .wallet-container {
+    margin-bottom: auto;
 }

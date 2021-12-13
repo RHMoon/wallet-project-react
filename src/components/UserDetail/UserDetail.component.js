@@ -9,7 +9,7 @@ const UserDetail = (props) => {
       {
         isLoading ? (<p>Loading</p>) : (
           <>
-            <div className="user-container">
+            <div className="user-container wallet-container w3-container w3-white w3-round-xlarge">
               <h1>User Detail</h1>
               <div className="table-user">
                 <table>
