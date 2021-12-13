@@ -6,19 +6,19 @@ import "./WalletDetail.css";
 
 
 const WalletDetail = (props) => {
-  const { data = {}, isLoading, selects, onSelected } = props;
-
-  const [selectWallets, setSelectWallets] = useState(0);
-
-  function onSelectedWallet(props) {
-    setSelectWallets(props.target.value)
-  }
+  const {
+    data = {},
+    isLoading,
+    selects,
+    onSelected,
+    selectWallets,
+    onSelectedWallet
+  } = props;
 
   const renderWalletOption = (walletList) => {
     return (
       <select id="dropdown" value={selectWallets} onChange={onSelectedWallet}>
         {
-
           walletList.map((item) => (
             <option value={`${item.walletId - 1}`}>{item.walletName}</option>
           ))
@@ -39,41 +39,35 @@ const WalletDetail = (props) => {
                 ))
               }
             </select>
-            {renderWalletOption(data[parseInt(selects)].walletList)}
+            {/* {renderWalletOption(data[parseInt(selects)].walletList)} */}
             <div className="display-padding">
 
-            {
-                data[parseInt(selects)].walletList[parseInt(selectWallets)] === undefined
-                  ? <p className="no-trans">Loading...</p>
-                  : <div className="wallet-container w3-container w3-white w3-round-xlarge">
-                  <h1>Wallet Detail</h1>
-                  <table>
-                    <tr>
-                      <td>Wallet Name</td>
-                      <td>:</td>
-                      <td>{data[parseInt(selects)].walletList[parseInt(selectWallets)].walletName}</td>
-                    </tr>
-                    <tr>
-                      <td>Amount</td>
-                      <td>:</td>
-                      <td>{data[parseInt(selects)].walletList[parseInt(selectWallets)].ballance}</td>
-                    </tr>
-                    <tr>
-                      <td>Create At</td>
-                      <td>:</td>
-                      <td>{data[parseInt(selects)].walletList[parseInt(selectWallets)].createdAt}</td>
-                    </tr>
-                  </table>
-                </div>
-              }
-              
+              <div className="wallet-container w3-container w3-white w3-round-xlarge">
+                <h1>Wallet Detail</h1>
+                <table>
+                  <tr>
+                    <td>Wallet Name</td>
+                    <td>:</td>
+                    <td>{data[parseInt(selects)].walletList[selectWallets].walletName}</td>
+                  </tr>
+                  <tr>
+                    <td>Amount</td>
+                    <td>:</td>
+                    <td>{data[parseInt(selects)].walletList[selectWallets].ballance}</td>
+                  </tr>
+                  <tr>
+                    <td>Create At</td>
+                    <td>:</td>
+                    <td>{data[parseInt(selects)].walletList[selectWallets].createdAt}</td>
+                  </tr>
+                </table>
+              </div>
 
               {
-                Object.keys(data[parseInt(selects)].walletList[parseInt(selectWallets)].transactionHistory).length === 0 || 
-                data[parseInt(selects)].walletList[parseInt(selectWallets)] === undefined
+                Object.keys(data[parseInt(selects)].walletList[selectWallets].transactionHistory).length === 0
                   ? <p className="no-trans">NO TRANSACTION HISTORY</p>
                   : <DisplayTransaction
-                    data={data[parseInt(selects)].walletList[parseInt(selectWallets)].transactionHistory}
+                    data={data[parseInt(selects)].walletList[selectWallets].transactionHistory}
                   />
               }
 

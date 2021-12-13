@@ -7,11 +7,18 @@ import WalletDetail from "../../components/WalletDetail/WalletDetail.component";
 
 const WalletPage = () => {
     const [selects, setSelects] = useState(0);
+    const [selectWallets, setSelectWallets] = useState(0);
     const [customer, setCustomer] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     function onSelected(props) {
         setSelects(props.target.value)
+    }
+
+
+
+    function onSelectedWallet(props) {
+        setSelectWallets(props.target.value)
     }
 
     const fetchData = async () => {
@@ -45,6 +52,8 @@ const WalletPage = () => {
                 isLoading={isLoading}
                 selects={selects}
                 onSelected={onSelected}
+                selectWallets={selectWallets}
+                onSelectedWallet={onSelectedWallet}
             />
 
         </div>

@@ -3,23 +3,14 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./DisplayTransaction.css";
 
 const DisplayTransaction = (props) => {
-  const { data = {}, selectWallets, onSelectedWallet } = props;
-  // const [selectWallets, setSelectWallets] = useState(0);
+  const {
+    data = {},
+    // selectWallets,
+    // onSelectedWallet 
+  } = props;
 
-  // function onSelectedWallet(props) {
-  //   setSelectWallets(props.target.value)
-  //   // console.log(props.target.value)
-  // }
   return (
     <>
-      <select id="dropdown" value={selectWallets} onChange={onSelectedWallet}>
-        {
-
-          data.map((item) => (
-            <option value={`${item.walletId - 1}`}>{item.walletName}</option>
-          ))
-        }
-      </select>
       <div className="wallet-container w3-white w3-round-xlarge">
         <div className="transaction-container">
           <h1>Detail Transaction</h1>

@@ -11,8 +11,12 @@ const DisplayWallet = (props) => {
         {
           data.map((item) => (
             <div key={item.walletId} className="grid-item w3-round-large">
-                  <p>{item.walletName}</p>
-                  <p>{item.ballance}</p>
+              <p>{item.walletName}</p>
+              <p>IDR {
+                item.ballance.toString().replace(
+                  /\B(?=(\d{3})+(?!\d))/g, ","
+                )}.00
+              </p>
             </div>
           ))
         }
