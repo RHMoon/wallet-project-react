@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
+
 import Dashboard from './pages/Dashboard/Dashboard.container';
 import WalletPage from './pages/WalletPage/WalletPage.container';
 import Header from './components/Header/Header.component';
 import TransactionPage from './pages/TransactionPage/TransactionPage.container';
+
+import './App.css';
 
 function App() {
 

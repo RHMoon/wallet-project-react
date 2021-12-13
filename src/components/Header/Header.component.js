@@ -4,10 +4,10 @@ import "./Header.css";
 
 const Header = () => {
     return (
-        <div className="header">
-            <Link className="link" to="/">Dashboard</Link>
-            <Link className="link" to="wallets">Wallet</Link>
-            <Link className="link" to="transactions">Transaction</Link>
+        <div className="w3-bar w3-gray w3-border-bottom w3-xlarge">
+            <Link className="w3-bar-item w3-button w3-text-white w3-hover-black" to="/"><div className="profile icon w3-margin-right"></div>Dashboard</Link>
+            <Link className="w3-bar-item w3-button w3-text-white w3-hover-black" to="wallets"><div className="card icon w3-margin-right"></div>Wallet</Link>
+            <Link className="w3-bar-item w3-button w3-text-white w3-hover-black" to="transactions"><div className="profile icon w3-margin-right"></div>Transaction</Link>
         </div>
     )
 }
