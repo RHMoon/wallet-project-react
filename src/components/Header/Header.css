@@ -1,48 +1,48 @@
 div .header {
-    width: 100%;
-    overflow: auto;
-    background-color: dimgray;
+  width: 100%;
+  overflow: auto;
+  background-color: dimgray;
 }
 
 div .header .link {
-    text-align: center;
-    display: inline-block;
-    /* padding: 10px; */
-    color: white;
-    text-decoration: none;
-    /* font-size: 50px; */
-    /* width: 20%; */
+  text-align: center;
+  display: inline-block;
+  /* padding: 10px; */
+  color: white;
+  text-decoration: none;
+  /* font-size: 50px; */
+  /* width: 20%; */
 }
 
 .link:hover {
-    background-color: #000;
+  background-color: #000;
 }
 
 .profile.icon {
-    display: inline-block;
-    color: white;
-    position: relative;
-    margin-left: 3px;
-    margin-right: 20px;
-    margin-top: 20px;
-    width: 14px;
-    height: 6px;
-    border-left: solid 1px currentColor;
-    border-right: solid 1px currentColor;
-    border-top: solid 1px currentColor;
-    border-bottom: solid 1px transparent;
-    border-radius: 6px 6px 0 0;
+  display: inline-block;
+  color: white;
+  position: relative;
+  margin-left: 3px;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 14px;
+  height: 6px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+  border-top: solid 1px currentColor;
+  border-bottom: solid 1px transparent;
+  border-radius: 6px 6px 0 0;
 }
 
 .profile.icon:before {
-    content: '';
-    position: absolute;
-    left: 2px;
-    top: -10px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: solid 1px currentColor;
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: solid 1px currentColor;
 }
 
 .card.icon {
@@ -60,7 +60,7 @@ div .header .link {
 }
 
 .card.icon:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 1px;
   left: -1px;
@@ -70,7 +70,7 @@ div .header .link {
 }
 
 .card.icon:after {
-  content: '';
+  content: "";
   position: absolute;
   right: 1px;
   bottom: 2px;
@@ -79,4 +79,39 @@ div .header .link {
   background-color: currentColor;
 }
 
+.suitcase-1.icon {
+  color: white;
+  display: inline-block;
+  position: relative;
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 15px;
+  height: 10px;
+  border-radius: 2px;
+  border: solid 1px currentColor;
+  background-color: currentColor;
+}
 
+.suitcase-1.icon:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: -3px;
+  width: 5px;
+  height: 2px;
+  border-radius: 3px 3px 0 0;
+  border-top: solid 1px currentColor;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+}
+
+.suitcase-1.icon:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 7px;
+  height: 10px;
+  color: white;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+}
