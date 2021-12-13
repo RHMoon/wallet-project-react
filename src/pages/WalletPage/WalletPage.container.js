@@ -33,20 +33,20 @@ const WalletPage = () => {
     return (
         <div className="wallet">
             <h1>Wallet</h1>
-            <select id="dropdown" value={selects} onChange={onSelected}>
+            {/* <select id="dropdown" value={selects} onChange={onSelected}>
                 <option value="0">user 1</option>
                 <option value="1">user 2</option>
                 <option value="2">user 3</option>
-            </select>
+            </select> */}
 
-            {/* <WalletDetail data={customer[parseInt(selects)].walletList[0]} isLoading = {isLoading} /> */}
-            {/* {
-                Object.keys(customer[parseInt(selects)].walletList[0].transactionHistory).length === 0
-                    ? <p className="no-trans">NO TRANSACTION HISTORY</p>
-                    : <DisplayTransaction data={customer[parseInt(selects)].walletList[0].transactionHistory} />
-            } */}
-            <WalletDetail data={customer[parseInt(selects)]} isLoading = {isLoading} />
-            {/* <WalletDetail data={customer[parseInt(selects)].walletList[parseInt(0)]} isLoading = {isLoading} /> */}
+            {/* <WalletDetail data={customer[parseInt(selects)]} isLoading = {isLoading} /> */}
+            <WalletDetail
+                data={customer}
+                isLoading={isLoading}
+                selects={selects}
+                onSelected={onSelected}
+            />
+
         </div>
     )
 }

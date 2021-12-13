@@ -12,7 +12,7 @@ const UserDetail = (props) => {
             <select id="dropdown" value={selects} onChange={onSelected}>
               {
                 data.map((item) => (
-                  <option value={`${item.customerId-1}`}>customer {item.customerId}</option>
+                  <option value={`${item.customerId-1}`}>Customer {item.customerId}</option>
                 ))
               }
             </select>

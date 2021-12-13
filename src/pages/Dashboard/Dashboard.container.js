@@ -33,11 +33,6 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
             <h1>Dashboard</h1>
-            {/* <select id="dropdown" value={selects} onChange={onSelected}>
-                <option value="0">user 1</option>
-                <option value="1">user 2</option>
-                <option value="2">user 3</option>
-            </select> */}
             {/* <UserDetail data = { customer[parseInt(selects)] } isLoading = {isLoading}/> */}
             <UserDetail
                 data={customer}
