@@ -1,0 +1,31 @@
+div .transaction-container{
+    text-align : -webkit-center;
+    /* border-style: solid; */
+    padding-bottom: 5%;
+    margin : 25px 100px auto;
+    /* font-size: 30px; */
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
+}
+
+.form {
+    max-width: 60%;
+    margin: 50px auto;
+}
+
+.form-row {
+    margin-bottom: 10px;
+    justify-content: space-between;
+    display: block;
+    text-align : left;
+    margin-bottom: 10px;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+.error {
+    color: red;
+    font-size: small;
+    text-align: right;
+    margin-bottom: 10px;
+}

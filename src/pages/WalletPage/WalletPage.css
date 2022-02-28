@@ -1,0 +1,14 @@
+
+div .wallet {
+    background-color: aqua;
+    text-align: center;
+}
+
+.no-trans {
+    font-size: 30px;
+    margin: auto;
+}
+
+p.no-trans {
+    padding: 50px;
+}

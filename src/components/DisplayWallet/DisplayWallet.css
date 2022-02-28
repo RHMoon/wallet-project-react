@@ -1,0 +1,28 @@
+div .display-wallet-container{
+    text-align : -webkit-center;
+    /* border-style: solid; */
+    padding : 30px;
+    margin : 100px 100px auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Times, serif;
+}
+
+div .display-padding {
+    padding-bottom: 50px;
+}
+
+.grid-container {
+  display: grid;
+  text-align : -webkit-center;
+  grid-template-columns: 30% 30% 30%;
+  background-color: #dee7ee;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(63, 60, 60, 0.281);
+  /* font-size: 10px; */
+  text-align: center;
+}
