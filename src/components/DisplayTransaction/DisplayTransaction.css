@@ -1,0 +1,22 @@
+div .transaction-container{
+    text-align : -webkit-center;
+    border-style: solid;
+    padding : 30px;
+    margin : 25px 100px auto;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Times, serif;
+}
+
+.table-transaction {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+.table-style {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
