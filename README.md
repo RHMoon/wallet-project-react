@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Github Page
+
+You can view the live page [Wallet Project React](https://nmfarras.github.io/wallet-project-react/).
+
+To be able to run properly, need the API from the [Wallet Project API](https://github.com/nmfarras/wallet-project-api/). 
+
+Run `mvn spring-boot:run` to run the project. Setup the database postgre with database name, user, and pass shown on `application.properties` file.
