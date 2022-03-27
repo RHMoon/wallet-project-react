@@ -11,14 +11,14 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <Header />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/wallets" element={<WalletPage />} />
           <Route path="/transactions" element={<TransactionPage />} />
         </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </div>
   );
 }
